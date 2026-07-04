@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentina Atayero | Health Social Media Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:     #0A0A0A;
+  --ink:       #141414;
+  --gold:      #C9A84C;
+  --gold-lt:   #E2C97E;
+  --gold-dim:  rgba(201,168,76,0.12);
+  --gold-rule: rgba(201,168,76,0.25);
+  --white:     #FFFFFF;
+  --muted:     rgba(255,255,255,0.45);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── ANIMATIONS ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(.22,.68,0,1.1),
+              transform 0.7s cubic-bezier(.22,.68,0,1.1);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.22s; }
+.d3 { transition-delay: 0.36s; }
+.d4 { transition-delay: 0.50s; }
+.d5 { transition-delay: 0.65s; }
+
+/* ─── LAYOUT ─── */
+.wrap      { max-width: 820px;  margin: 0 auto; padding: 0 28px; }
+.wrap-wide { max-width: 1060px; margin: 0 auto; padding: 0 28px; }
+
+/* ─── SHARED SECTION CHROME ─── */
+.sec-dark   { background: var(--ink); }
+.sec-black  { background: var(--black); }
+
+section {
+  padding: 96px 28px;
+  position: relative;
+}
+section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-rule), transparent);
+}
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.sec-h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+.sec-h2 em { font-style: italic; color: var(--gold-lt); }
+
+.bp {
+  color: rgba(255,255,255,0.72);
+  font-size: 17px;
+  line-height: 1.85;
+  margin-bottom: 18px;
+}
+.bp strong { color: var(--white); font-weight: 600; }
+.bp:last-of-type { margin-bottom: 0; }
+
+/* ─── GOLD DIVIDER LINE ─── */
+.gold-line {
+  width: 48px; height: 2px;
+  background: var(--gold);
+  margin: 32px 0;
+}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+  padding: 110px 28px 90px;
+}
+.hero::before { display: none; }
+
+.hero-glow {
+  position: absolute;
+  width: 720px; height: 720px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.16) 0%, transparent 70%);
+  top: -220px; right: -200px;
+  animation: glow 7s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero-glow2 {
+  position: absolute;
+  width: 420px; height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+  bottom: -120px; left: -100px;
+  animation: glow 9s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+@keyframes glow {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.13); opacity: 0.65; }
+}
+
+.hero-inner { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 40px;
+}
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 32px; height: 1px;
+  background: var(--gold);
+}
+
+.hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 6.5vw, 74px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--white);
+}
+.hero-h1 .line { display: block; }
+.hero-h1 .line-dim {
+  color: var(--white);
+  position: relative;
+  display: inline-block;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--gold-lt);
+  display: block;
+  margin-top: 8px;
+}
+
+.hero-subbox {
+  background: var(--gold);
+  color: var(--black);
+  padding: 18px 24px;
+  margin: 32px auto 0;
+  max-width: 580px;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.72;
+  border-left: 4px solid #8a6a1f;
+  text-align: left;
+  position: relative;
+}
+.hero-subbox::before {
+  content: '"';
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: rgba(0,0,0,0.15);
+  position: absolute;
+  top: 6px; left: 12px;
+  line-height: 1;
+  font-style: normal;
+}
+.hero-subbox strong {
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero-nudge {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.nudge-line {
+  width: 40px; height: 1px;
+  background: var(--gold-rule);
+  animation: nudgepulse 2.2s ease-in-out infinite;
+}
+@keyframes nudgepulse {
+  0%,100% { width: 40px; } 50% { width: 62px; }
+}
+
+/* ══════════════════════════════
+   PAIN CARDS
+══════════════════════════════ */
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--gold-rule);
+  border: 1px solid var(--gold-rule);
+  margin: 40px 0;
+}
+.pain-card {
+  background: var(--black);
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pain-icon { font-size: 24px; line-height: 1; }
+.pain-body { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+.pain-body strong { color: var(--white); display: block; font-size: 16px; margin-bottom: 5px; font-weight: 600; }
+
+/* ══════════════════════════════
+   TRUST GAP
+══════════════════════════════ */
+.trust-gap {
+  border-left: 3px solid var(--gold);
+  padding: 22px 28px;
+  background: var(--gold-dim);
+  margin-top: 36px;
+}
+.trust-gap p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(17px, 2.3vw, 22px);
+  color: var(--white);
+  line-height: 1.6;
+}
+.trust-gap p span { color: var(--gold-lt); }
+
+/* ══════════════════════════════
+   NOT YOUR FAULT
+══════════════════════════════ */
+.nyf {
+  text-align: center;
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+  border-bottom: 1px solid var(--gold-rule);
+}
+.nyf-h {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5.5vw, 62px);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.nyf-p {
+  max-width: 580px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.6);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ══════════════════════════════
+   WRONG MAP
+══════════════════════════════ */
+.wrong-map {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 52px;
+}
+.map-col {
+  padding: 32px 24px;
+  border: 1px solid var(--gold-rule);
+}
+.map-col.wrong { border-right: none; }
+.map-col.right { border-left: none; background: var(--gold-dim); }
+.map-col-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+  display: block;
+}
+.map-col-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(15px, 2vw, 20px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+.map-col.wrong .map-col-title { color: rgba(255,255,255,0.25); text-decoration: line-through; text-decoration-color: var(--gold); }
+.map-col.right .map-col-title { color: var(--gold-lt); }
+.map-arrow-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 26px;
+  border-top: 1px solid var(--gold-rule);
+  border-bottom: 1px solid var(--gold-rule);
+  padding: 32px 0;
+}
+
+/* ══════════════════════════════
+   HEALTH NICHE DISCIPLINE
+══════════════════════════════ */
+.niche-callout {
+  background: var(--gold);
+  color: var(--black);
+  padding: 28px 32px;
+  margin: 36px 0 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(16px, 2vw, 20px);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════
+   VALENTINA
+══════════════════════════════ */
+.s-valentina {
+  overflow: hidden;
+}
+.s-valentina-bg {
+  position: absolute;
+  right: -60px; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 400px;
+  font-weight: 900;
+  color: rgba(201,168,76,0.035);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+.val-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+.v-subtitle {
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: block;
+}
+.result-bar {
+  background: var(--gold);
+  color: var(--black);
+  padding: 20px 24px;
+  margin-top: 32px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(14px, 1.7vw, 17px);
+  line-height: 1.6;
+}
+.cred {
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.cred:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+.cred-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 9px;
+}
+.cred-txt { font-size: 15px; color: rgba(255,255,255,0.72); line-height: 1.65; }
+.cred-txt strong { color: var(--white); }
+
+/* ══════════════════════════════
+   BUYER JOURNEY / STAGES
+══════════════════════════════ */
+.stages { margin: 32px 0; }
+.stage {
+  display: flex;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  align-items: flex-start;
+}
+.stage:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+.stage-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 68px;
+  padding-top: 3px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.stage-body { color: rgba(255,255,255,0.75); font-size: 16px; line-height: 1.7; }
+.stage-body strong { color: var(--white); display: block; margin-bottom: 4px; font-size: 16px; }
+.stage-body em { color: var(--gold-lt); font-style: italic; }
+
+.stages-close {
+  margin-top: 32px;
+  padding: 22px 28px;
+  border-left: 3px solid var(--gold);
+  background: var(--gold-dim);
+}
+.stages-close p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--white);
+  line-height: 1.6;
+}
+.stages-close p span { color: var(--gold-lt); }
+
+/* ══════════════════════════════
+   AUDIT CALL STEPS
+══════════════════════════════ */
+.steps-grid { display: grid; gap: 16px; margin-top: 32px; }
+.step {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-left: 3px solid var(--gold);
+  padding: 24px 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.step-num {
+  font-size: 26px;
+  line-height: 1;
+  color: var(--gold-lt);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-txt { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+.step-txt strong { color: var(--white); display: block; margin-bottom: 6px; }
+
+/* ══════════════════════════════
+   TESTIMONIALS
+══════════════════════════════ */
+.testi-grid { display: grid; gap: 16px; margin-top: 28px; }
+.testi {
+  border-left: 3px solid var(--gold);
+  padding: 22px 26px;
+  background: rgba(255,255,255,0.03);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(16px, 2vw, 19px);
+  color: rgba(255,255,255,0.85);
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════
+   OBJECTION BOX
+══════════════════════════════ */
+.objection {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(18px, 2.5vw, 24px);
+  color: var(--gold-lt);
+  line-height: 1.5;
+  padding: 28px 0;
+  border-top: 1px solid var(--gold-rule);
+  border-bottom: 1px solid var(--gold-rule);
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* ══════════════════════════════
+   CTA BUTTON (inline)
+══════════════════════════════ */
+.cta-inline {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--black);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 18px 44px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.25s;
+  margin-top: 36px;
+}
+.cta-inline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.18);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+.cta-inline:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.35); }
+.cta-inline:hover::after { transform: translateX(0); }
+.cta-fine-sm {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* ══════════════════════════════
+   CTA SECTION (full width)
+══════════════════════════════ */
+.s-cta {
+  text-align: center;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+.s-cta-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 65% 75% at 50% 50%, rgba(201,168,76,0.1) 0%, transparent 68%);
+  pointer-events: none;
+}
+.cta-inner { position: relative; z-index: 1; }
+
+.cta-h {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4.5vw, 52px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.cta-h em { font-style: italic; color: var(--gold-lt); }
+.cta-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.55);
+  margin: 0 auto 40px;
+  max-width: 520px;
+  line-height: 1.75;
+}
+.cta-btn-lg {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--black);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 20px 56px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.25s;
+}
+.cta-btn-lg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.18);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+.cta-btn-lg:hover { transform: translateY(-3px); box-shadow: 0 14px 44px rgba(201,168,76,0.38); }
+.cta-btn-lg:hover::after { transform: translateX(0); }
+.cta-fine-lg { margin-top: 14px; font-size: 12px; color: var(--muted); letter-spacing: 0.07em; }
+
+/* ══════════════════════════════
+   CLOSING STATEMENT
+══════════════════════════════ */
+.s-closing {
+  text-align: center;
+}
+.closing-h {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.closing-h em { font-style: italic; color: var(--gold-lt); }
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer {
+  padding: 28px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  letter-spacing: 0.05em;
+  background: var(--black);
+}
+
+/* ══════════════════════════════
+   MOBILE
+══════════════════════════════ */
+@media (max-width: 700px) {
+  .hero    { padding: 88px 20px 72px; }
+  section  { padding: 72px 20px; }
+  .pain-grid   { grid-template-columns: 1fr; }
+  .wrong-map   { grid-template-columns: 1fr; }
+  .map-col.wrong { border-right: 1px solid var(--gold-rule); border-bottom: none; }
+  .map-col.right { border-left: 1px solid var(--gold-rule); }
+  .map-arrow-col { padding: 10px 0; border: none; font-size: 20px; transform: rotate(90deg); }
+  .val-grid    { grid-template-columns: 1fr; gap: 40px; }
+  .stage { flex-direction: column; gap: 6px; }
+  .stage-num { min-width: auto; }
+  .step  { flex-direction: column; gap: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; opacity: 1; transform: none; }
+  .hero-glow, .hero-glow2 { animation: none; }
+  .nudge-line { animation: none; }
+  .line-dim::after { transition: none; transform: scaleX(1); }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-tag reveal">For Certified Health Coaches</div>
+    <h1 class="hero-h1">
+      <span class="line reveal d1">You're showing up.</span>
+      <span class="line reveal d2">Doing everything right.</span>
+      <em class="reveal d3">So why isn't anyone signing up?</em>
+    </h1>
+    <div class="hero-subbox reveal d4">
+      This is for the certified <strong>Health Coach</strong> who has an offer, an audience, and is still watching months go by with empty consultation slots, half-filled cohorts, and a DM inbox full of "unserious audience". You're not struggling because you're not good at what you do, but because nobody taught you how to sell health online.
+    </div>
+    <div class="hero-nudge reveal d5">
+      <span class="nudge-line"></span>
+      <span>Here's what's really going on</span>
+    </div>
+  </div>
+</header>
+
+
+<!-- ══ BODY 1: THE PATTERN ══ -->
+<section class="sec-dark">
+  <div class="wrap">
+    <span class="eyebrow reveal">Sound familiar?</span>
+    <h2 class="sec-h2 reveal d1">Your content is working.<br><em>Your conversions aren't.</em></h2>
+    <p class="bp reveal d2">You show up consistently. Plan your content. Figured out the techy stuff; the scheduling tools, email lists, maybe even a funnel or two. You've watched tutorials. Maybe paid for a course, or spent weeks rewriting your bio, hoping this time it would click. But still…</p>
+    <div class="pain-grid reveal d3">
+      <div class="pain-card">
+        <div class="pain-icon">👍</div>
+        <div class="pain-body"><strong>Likes, not leads</strong>Your posts perform. Nobody books.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">👀</div>
+        <div class="pain-body"><strong>Views, not clients</strong>People watch your content and vanish.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">💬</div>
+        <div class="pain-body"><strong>DMs that go cold</strong>They ask a question, then disappear.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ BODY 2: THE REAL REASON ══ -->
+<section class="sec-black">
+  <div class="wrap">
+    <span class="eyebrow reveal">The real reason</span>
+    <h2 class="sec-h2 reveal d1">Here's why your content<br><em>isn't converting.</em></h2>
+    <p class="bp reveal d2">Most marketing advice out there is built for generalist coaches. You're selling health. And health is different.</p>
+    <p class="bp reveal d3">Your potential clients already know something is wrong. They know their hormones are off, their gut is struggling, their energy has crashed. They're not only looking to be educated. And they are not looking to hand their health over to just any coach on the internet. Because health is personal. It's vulnerable. It's fragile.</p>
+    <p class="bp reveal">So they scroll. They watch. They save your posts. They think, <em>"she really knows her stuff."</em> And then they do nothing. Not because they don't need help. But because they haven't been given enough reason to trust you.</p>
+    <div class="trust-gap reveal">
+      <p>That invisible gap between <span>"I know this person knows their stuff"</span> and <span>"I trust this person enough to pay them"</span> is exactly where your conversions are dying.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ BODY 3: NOT YOUR FAULT ══ -->
+<section class="sec-dark">
+  <div class="wrap">
+    <div class="nyf">
+      <span class="eyebrow reveal" style="display:block; text-align:center;">Take a breath</span>
+      <h2 class="nyf-h reveal d1">This is not<br>your fault.</h2>
+      <p class="nyf-p reveal d2">You became a health coach to transform lives. Nobody trained you to be a marketer. Nobody sat you down and said, "Here's exactly how to move a hesitant, trust-sensitive person through social media and turn them into a paying client."</p>
+    </div>
+    <p class="bp reveal">And when you went looking for help, the marketing world handed you advice built for fashion brands, business coaches, and e-commerce stores. <strong>You were given the wrong map for the terrain you're standing on.</strong></p>
+    <p class="bp reveal">Most coaches who quit social media don't quit because they were bad at coaching. They quit because they couldn't figure out the business side.</p>
+    <div class="wrong-map reveal" style="margin-top:44px;">
+      <div class="map-col wrong">
+        <span class="map-col-label">What you were given</span>
+        <div class="map-col-title">Generic marketing for any business</div>
+      </div>
+      <div class="map-arrow-col">→</div>
+      <div class="map-col right">
+        <span class="map-col-label">What you actually need</span>
+        <div class="map-col-title">Health-niche marketing that builds trust</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ BODY 4: HEALTH NICHE DISCIPLINE ══ -->
+<section class="sec-black">
+  <div class="wrap">
+    <span class="eyebrow reveal">Why nothing has worked</span>
+    <h2 class="sec-h2 reveal d1">Your audience are <em>the most hesitant buyer.</em></h2>
+    <p class="bp reveal d2">The health niche has a unique buyer psychology. Your audience is more skeptical than most. They've been misled by wellness trends, bad advice, and quick fixes. They've learned to distrust online health "gurus."</p>
+    <p class="bp reveal">So the moment your content looks like everyone else's; the same transformation posts, the same "5 tips for hormone balance" graphics, the same generic captions, they scroll past. Not because the content is bad, but because it blends in with everything they've learned to ignore.</p>
+    <p class="bp reveal">Getting consistent clients as a health coach requires a very specific approach. One that meets your audience exactly where they are emotionally. One that moves them slowly, intentionally from <em>"I see you"</em> to <em>"I believe you"</em> to <em>"I need you."</em> One that makes your messaging feel like it was written about them, not at them.</p>
+    <div class="niche-callout reveal">
+      That's not what generic marketing does. That's health-niche marketing.
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ MEET VALENTINA ══ -->
+<section class="sec-dark s-valentina">
+  <div class="s-valentina-bg">V</div>
+  <div class="wrap-wide">
+    <div class="val-grid">
+      <div class="val-photo-col reveal">
+        <div class="val-photo-wrap">
+          <img src="VAL_PHOTO_PLACEHOLDER" alt="Valentina Atayero" class="val-photo">
+          <div class="val-photo-badge">Health Social Media Marketer</div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow reveal">Meet Valentina</span>
+        <h2 class="sec-h2 reveal d1">I work exclusively<br>with health coaches.</h2>
+        <span class="v-subtitle reveal d2">Not beauty brands. Not business coaches. Health coaches specifically.</span>
+        <p class="bp reveal d2">Why did I narrow my focus? I am a Medical Laboratory Scientist with a marketer's brain and a deep obsession with everything health-related. When I started looking at health coaches' social media through a marketer's lens, I kept seeing the same thing: brilliant coaches, credible expertise, devastating positioning.</p>
+        <p class="bp reveal d3">Not because they didn't know their craft, but because the way they were showing up online wasn't built to convert a health-skeptical audience. Their content was attracting followers. Not clients.</p>
+        <div class="cred reveal d4">
+          <div class="cred-dot"></div>
+          <div class="cred-txt"><strong>From "unserious people" to a full calendar</strong> I've helped health coaches go from "I mostly hear from unserious people" to "I can't believe how full my calendar has gotten."</div>
+        </div>
+        <div class="cred reveal d5">
+          <div class="cred-dot"></div>
+          <div class="cred-txt"><strong>Not more content. Better strategy.</strong> Not by giving them more things to post, but by helping them understand exactly how health clients think, what they need to see before they trust someone, and how to build that trust through every single piece of content.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA AFTER VALENTINA ══ -->
+<div class="val-cta-strip sec-black">
+  <div class="wrap" style="text-align:center;">
+    <a href="https://forms.gle/ZoaLzWAm93Y2ZMcz8" target="_blank" rel="noopener" class="cta-inline reveal">Book a session with me</a>
+    <p class="cta-fine-sm reveal">Free · 30 minutes · Limited spots each week</p>
+  </div>
+</div>
+
+
+<!-- ══ BUYER JOURNEY ══ -->
+<section class="sec-black">
+  <div class="wrap">
+    <span class="eyebrow reveal">The buyer journey</span>
+    <h2 class="sec-h2 reveal d1">Why health-niche marketing is completely different<br><em>from what you've been doing.</em></h2>
+    <p class="bp reveal d2">When a potential client lands on your page, they don't immediately want to reach out to you, even if they need the transformation you're offering. They go through invisible stages and if your content isn't designed to meet them at each stage, they'll leave without ever telling you why.</p>
+    <div class="stages">
+      <div class="stage reveal">
+        <div class="stage-num">Stage 1</div>
+        <div class="stage-body"><strong>Recognition</strong>They stop scrolling because something you said feels uncomfortably familiar. <em>"This person is talking about something I'm experiencing."</em></div>
+      </div>
+      <div class="stage reveal">
+        <div class="stage-num">Stage 2</div>
+        <div class="stage-body"><strong>Identification</strong>They go through your page, looking for proof that you get the full picture, not just the surface symptoms. <em>"She actually understands this. Like, really understands."</em></div>
+      </div>
+      <div class="stage reveal">
+        <div class="stage-num">Stage 3</div>
+        <div class="stage-body"><strong>Belief</strong>They need to believe your solution is designed for someone exactly like them. <em>"She knows what's wrong AND she has a solution."</em></div>
+      </div>
+      <div class="stage reveal">
+        <div class="stage-num">Stage 4</div>
+        <div class="stage-body"><strong>Trust</strong>Health clients don't buy from strangers. This stage takes time and every post you make either builds it or erodes it. <em>"I think she's the one I should work with."</em></div>
+      </div>
+      <div class="stage reveal">
+        <div class="stage-num">Stage 5</div>
+        <div class="stage-body"><strong>Action</strong>This is where they DM you, book the call, click the link. But they only get here if you've walked them through all four stages before this. <em>"I need to reach out. I don't want to feel like this anymore."</em></div>
+      </div>
+    </div>
+    <div class="stages-close reveal">
+      <p>Generic marketing skips straight to "here's my offer, book a call." <span>Health marketing builds the journey. The difference is everything.</span></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ THE AUDIT CALL ══ -->
+<section class="sec-dark">
+  <div class="wrap">
+    <span class="eyebrow reveal">Here's what I'm offering you</span>
+    <h2 class="sec-h2 reveal d1">The Free<br><em>30-Minute Audit Call.</em></h2>
+    <p class="bp reveal d2">A complimentary session where I go through your social media presence with the eyes of someone who specializes in health-niche marketing and I tell you exactly what's working, what isn't, and what you need to change to start converting your audience into clients.</p>
+    <p class="bp reveal d3">No vague feedback. No "post more consistently." Specific, actionable findings about your positioning, your messaging, and why your current approach isn't translating into bookings.</p>
+
+    <div class="gold-line reveal"></div>
+
+    <span class="eyebrow reveal">How it works</span>
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-num">①</div>
+        <div class="step-txt"><strong>Book your slot</strong>You pick a time and fill in a short form with your social media handles. That's all I need to get started before we speak.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">②</div>
+        <div class="step-txt"><strong>I audit your accounts before we meet</strong>I go through your profile, your content, your bio, how you're communicating your offer, how your audience is responding, and how your overall social presence holds up from a health-niche marketing perspective. I make notes. I look for the specific gaps.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">③</div>
+        <div class="step-txt"><strong>You walk me through your brand on the call</strong>You tell me about your offer, your ideal client, what you've tried, what's worked, what hasn't. This helps me cross-reference my findings with what you're experiencing from the inside.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">④</div>
+        <div class="step-txt"><strong>I walk you through exactly what I found</strong>You get clear, direct feedback on what to stop, what to keep, and what you urgently need to implement, specifically for attracting and converting health clients.</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="text-align:center;">
+      <a href="https://forms.gle/ZoaLzWAm93Y2ZMcz8" target="_blank" rel="noopener" class="cta-inline">Book Your Free Audit Call</a>
+      <p class="cta-fine-sm">Free · 30 minutes · Limited spots each week</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="sec-black">
+  <div class="wrap">
+    <span class="eyebrow reveal">What coaches said</span>
+    <h2 class="sec-h2 reveal d1">What health coaches said<br><em>after their audit call.</em></h2>
+    <div class="testi-grid">
+      <div class="testi reveal d2">
+        "I honestly didn't know I was doing this the wrong way. I just assumed it was only a few serious people that was messaging me. I didn't realize my whole positioning was the problem."
+      </div>
+      <div class="testi reveal d3">
+        "Valentina, you sound like you really know what you're talking about. I'm so glad I had this conversation."
+      </div>
+    </div>
+
+    <div class="reveal" style="text-align:center;">
+      <a href="https://forms.gle/ZoaLzWAm93Y2ZMcz8" target="_blank" rel="noopener" class="cta-inline">Book Your Free Audit Call</a>
+      <p class="cta-fine-sm">Free · 30 minutes · Limited spots each week</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ OBJECTION ══ -->
+<section class="sec-dark">
+  <div class="wrap">
+    <div class="objection reveal">
+      "I've heard this before. Someone always promises they can help coaches get clients, and then it costs a fortune and delivers nothing."
+    </div>
+    <p class="bp reveal">I hear that. And honestly? That skepticism is earned. There are a lot of people selling generic marketing advice to coaches and dressing it up as specialized help.</p>
+    <p class="bp reveal">Here's what's different: I'm not selling you a course on "how to grow on Instagram." I'm not promising you a viral strategy or a magic funnel. I'm offering you 30 minutes of someone who has spent real time studying specifically how health clients think, why they hesitate, and what it takes to move them from passive follower to paying client.</p>
+    <p class="bp reveal"><strong>It's FREE.</strong> It costs you 30 minutes. Less than the time you'd spend scrolling for ideas on what to post next. If it's useful, great. If it's not, you've lost nothing.</p>
+    <p class="bp reveal">And if after our call you decide you'd rather have someone implement these strategies for you instead of doing it yourself, we can talk about what that looks like. No pressure. No pitch. Your call entirely.</p>
+
+    <div class="reveal" style="text-align:center;">
+      <a href="https://forms.gle/ZoaLzWAm93Y2ZMcz8" target="_blank" rel="noopener" class="cta-inline">Book Your Free Audit Call</a>
+      <p class="cta-fine-sm">Free · 30 minutes · Limited spots each week</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ URGENCY ══ -->
+<section class="sec-black">
+  <div class="wrap">
+    <p class="bp reveal">I take on a limited number of audit calls each week so I can go into each one properly prepared. <strong>Spots go quickly.</strong> If you've been sitting on this decision, now's the time.</p>
+    <p class="bp reveal">The only thing you're risking is 30 minutes of your time. And if you leave that call without a single useful thing you can apply immediately, I'll have failed at my one job for that 30 minutes. That doesn't happen. But the guarantee is in the offer itself: it's free, it's specific, and it's built entirely around your situation.</p>
+    <p class="bp reveal">You've already invested too much; in your certification, in your content, in showing up month after month, to keep running the same strategy and hoping for different results. <strong>Let's figure out what's actually going on.</strong></p>
+
+    <div class="reveal" style="text-align:center;">
+      <a href="https://forms.gle/ZoaLzWAm93Y2ZMcz8" target="_blank" rel="noopener" class="cta-inline">Book Your Free Audit Call</a>
+      <p class="cta-fine-sm">Free · 30 minutes · Limited spots each week</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CLOSING CTA ══ -->
+<section class="sec-dark s-cta s-closing">
+  <div class="s-cta-glow"></div>
+  <div class="cta-inner wrap">
+    <span class="eyebrow reveal" style="display:block; margin-bottom:20px;">You became a health coach to change lives.</span>
+    <h2 class="closing-h reveal d1">You have the training.<br>You have the expertise.<br><em>Now let's get you the clients.</em></h2>
+    <p class="cta-sub reveal d2">You have the training. You have the expertise. You have the offer. What you're missing is the specific strategy that makes your ideal client stop scrolling, recognize themselves in your content, and trust you enough to take the next step. That's what we're going to find in 30 minutes.</p>
+    <div class="reveal d3">
+      <a href="https://forms.gle/ZoaLzWAm93Y2ZMcz8" target="_blank" rel="noopener" class="cta-btn-lg">Book Your Free Audit Call</a>
+      <p class="cta-fine-lg">Free · No pitch · Your call entirely</p>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  &copy; 2025 Valentina Atayero &middot; Health Social Media Marketing
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      if (e.target.classList.contains('line-dim')) e.target.classList.add('striked');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+
+document.querySelectorAll('.reveal, .line-dim').forEach(el => obs.observe(el));
+
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('in'));
+    setTimeout(() => {
+      document.querySelectorAll('.hero .line-dim').forEach(el => el.classList.add('striked'));
+    }, 1100);
+  }, 180);
+});
+</script>
+</body>
+</html>
